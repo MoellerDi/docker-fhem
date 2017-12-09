@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+    fhem:
+        image: hd-fhem:rc2
+        restart: always
+        expose:
+            - "8083"
+            - "7072"
+        build: fhem
+        volumes:
+            - ./fhem/core/:/opt/fhem/
+
+    homebridge:
+        image: hd-homebridge:rc2
+        restart: always
+        expose:
+            - "51826"
+            - "8282"
+            - "5353"
+        build: homebridge
+        volumes:
+            - ./homebridge/start.sh:/root/start.sh
+            - ./homebridge/config.json:/root/.homebridge/config.json
