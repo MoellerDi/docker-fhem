@@ -22,3 +22,5 @@ services:
         volumes:
             - ./homebridge/start.sh:/root/start.sh
             - ./homebridge/config.json:/root/.homebridge/config.json
+        links:
+            - fhem:fhem
