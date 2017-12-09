@@ -86,7 +86,9 @@ RUN echo 'attr global    nofork     1\n'    >> /opt/fhem/fhem.cfg && \
     echo 'attr WEBphone  csrfToken  none\n' >> /opt/fhem/fhem.cfg && \
     echo 'attr WEBtablet csrfToken  none\n' >> /opt/fhem/fhem.cfg
 
+
 #### docker stuff ####
+
 WORKDIR "/opt/fhem"
 
 COPY start.sh ./
