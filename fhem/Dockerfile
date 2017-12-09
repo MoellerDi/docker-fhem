@@ -70,17 +70,26 @@ libtimedate-perl \
 libwww-perl \
 libxml-simple-perl
 
-# Install fhem
+# set timezone
 RUN echo Europe/Berlin > /etc/timezone && dpkg-reconfigure tzdata
 
-RUN wget https://fhem.de/fhem-${FHEM_VERSION}.deb && dpkg -i fhem-${FHEM_VERSION}.deb
+# Install fhem
+RUN wget https://fhem.de/fhem-${FHEM_VERSION}.deb && dpkg -i fhem-${FHEM_VERSION}.deb && rm -f fhem-${FHEM_VERSION}.deb
 RUN userdel fhem
 
+# Some additions to the standard fhem.cfg
+RUN echo 'attr global    nofork     1\n'    >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB       editConfig 1\n'    >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEB       csrfToken  none\n' >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEBphone  csrfToken  none\n' >> /opt/fhem/fhem.cfg && \
+    echo 'attr WEBtablet csrfToken  none\n' >> /opt/fhem/fhem.cfg
+
+#### docker stuff ####
 WORKDIR "/opt/fhem"
 
 COPY start.sh ./
 RUN chmod +x ./start.sh
 
-EXPOSE 8083 7072
+EXPOSE 8083 8084 8085 7072
 
-CMD bash /opt/fhem/start.sh
+CMD /opt/fhem/start.sh
