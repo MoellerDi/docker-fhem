@@ -95,8 +95,8 @@ WORKDIR "/opt/fhem"
 
 EXPOSE 8083 8084 8085 7072
 
-COPY entry.sh /
-RUN chmod +x /entry.sh
+COPY entry.sh /root/
+RUN chmod +x /root/entry.sh
 
-ENTRYPOINT ["/entry.sh"]
+ENTRYPOINT ["/root/entry.sh"]
 CMD ["fhem.cfg"]
