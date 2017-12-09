@@ -95,5 +95,5 @@ WORKDIR "/opt/fhem"
 
 EXPOSE 8083 8084 8085 7072
 
-ENTRYPOINT ["perl fhem.pl"]
+ENTRYPOINT ["entry.sh"]
 CMD ["fhem.cfg"]
