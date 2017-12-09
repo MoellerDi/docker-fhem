@@ -5,8 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
 # Install dependencies
-RUN apt-get update && apt-get upgrade -y --force-yes && apt-get install -y --force-yes --no-install-recommends apt-utils
-RUN apt-get -y --force-yes install \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+apt-utils \
 apt-transport-https \
 build-essential \
 dfu-programmer \
@@ -23,7 +23,7 @@ vim \
 wget
 
 # Install perl packages
-RUN apt-get -y --force-yes install \
+RUN apt-get update && apt-get -y install \
 libalgorithm-merge-perl \
 libauthen-oath-perl \
 libavahi-compat-libdnssd-dev \
