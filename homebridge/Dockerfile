@@ -20,6 +20,10 @@ RUN npm install -g homebridge homebridge-fhem homebridge-http
 
 EXPOSE 51826
 
-COPY start.sh /root/
-COPY config.json /root/.homebridge/
-CMD /root/start.sh
+WORKDIR "/opt/fhem"
+COPY start.sh ./
+RUN chmod +x ./start.sh
+
+COPY config.json ./.homebridge/
+
+CMD ./start.sh

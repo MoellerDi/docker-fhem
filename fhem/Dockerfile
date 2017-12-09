@@ -81,6 +81,7 @@ RUN userdel fhem
 WORKDIR "/opt/fhem"
 
 COPY start.sh ./
+RUN chmod +x ./start.sh
 
 EXPOSE 8083 7072
 
