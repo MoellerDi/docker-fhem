@@ -91,9 +91,6 @@ RUN echo 'attr global    nofork     1\n'    >> /opt/fhem/fhem.cfg && \
 
 WORKDIR "/opt/fhem"
 
-COPY start.sh ./
-RUN chmod +x ./start.sh
-
 EXPOSE 8083 8084 8085 7072
 
-CMD /opt/fhem/start.sh
+CMD perl fhem.pl fhem.cfg
