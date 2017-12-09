@@ -74,8 +74,10 @@ libxml-simple-perl
 RUN echo Europe/Berlin > /etc/timezone && dpkg-reconfigure tzdata
 
 # Install fhem
-RUN wget https://fhem.de/fhem-${FHEM_VERSION}.deb && dpkg -i fhem-${FHEM_VERSION}.deb && rm -f fhem-${FHEM_VERSION}.deb
-RUN userdel fhem
+RUN wget https://fhem.de/fhem-${FHEM_VERSION}.deb && \
+    dpkg -i fhem-${FHEM_VERSION}.deb && \
+    rm -f fhem-${FHEM_VERSION}.deb && \
+    userdel fhem
 
 # Some additions to the standard fhem.cfg
 RUN echo 'attr global    nofork     1\n'    >> /opt/fhem/fhem.cfg && \
