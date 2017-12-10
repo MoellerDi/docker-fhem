@@ -5,7 +5,7 @@ ENV TERM xterm
 ENV NODE_ENV production
 
 # Install dependencies
-RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	apt-utils \
 	xz-utils \
 	wget python \

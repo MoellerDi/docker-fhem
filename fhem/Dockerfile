@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Install perl packages
-RUN apt-get update && apt-get -y install \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	libalgorithm-merge-perl \
 	libauthen-oath-perl \
 	libavahi-compat-libdnssd-dev \
