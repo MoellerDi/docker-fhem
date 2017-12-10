@@ -1,8 +1,8 @@
 FROM debian:jessie
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TERM xterm
-ENV NODE_ENV production
+ENV DEBIAN_FRONTEND noninteractive \
+    TERM xterm \
+    NODE_ENV production
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
