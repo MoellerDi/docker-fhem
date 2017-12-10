@@ -18,14 +18,15 @@ RUN apt-get install -y --force-yes make make gcc g++
 
 RUN npm install -g homebridge homebridge-fhem homebridge-http
 
-COPY config.json ./.homebridge/
-
+#### fix avahi-daemon ####
 RUN sed -i "s/rlimit-nproc=3/#rlimit-nproc=3/" /etc/avahi/avahi-daemon.conf
 
-EXPOSE 51826
-
+#### docker stuff ####
 WORKDIR "/root"
+COPY config.json ./.homebridge/
 COPY start.sh ./
 RUN chmod +x ./start.sh
+
+EXPOSE 51826
 
 CMD ./start.sh
