@@ -27,6 +27,6 @@ COPY config.json ./.homebridge/
 COPY start.sh ./
 RUN chmod +x ./start.sh
 
-EXPOSE 51826
+EXPOSE 51826 8282
 
 CMD ./start.sh
