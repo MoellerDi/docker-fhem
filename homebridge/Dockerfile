@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	gcc \
 	g++
 
-RUN wget --no-check-certificate https://nodejs.org/dist/v6.9.2/node-v6.9.2-linux-x64.tar.xz -P /tmp && \
+RUN wget https://nodejs.org/dist/v6.9.2/node-v6.9.2-linux-x64.tar.xz -P /tmp && \
 	cd /usr/local && \
 	tar -xvf /tmp/node-v6.9.2-linux-x64.tar.xz --strip=1 && \
 	ln -s /usr/local/bin/node /usr/bin/node
