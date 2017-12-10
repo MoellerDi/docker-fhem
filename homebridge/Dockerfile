@@ -20,7 +20,7 @@ RUN npm install -g homebridge homebridge-fhem homebridge-http
 
 COPY config.json ./.homebridge/
 
-#RUN sed -i "s/rlimit-nproc=3/#rlimit-nproc=3/" /etc/avahi/avahi-daemon.conf
+RUN sed -i "s/rlimit-nproc=3/#rlimit-nproc=3/" /etc/avahi/avahi-daemon.conf
 
 EXPOSE 51826
 
