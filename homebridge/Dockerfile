@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	xz-utils \
 	wget python \
 	libavahi-compat-libdnssd-dev \
+	ca-certificates \
 	make \
 	gcc \
 	g++
