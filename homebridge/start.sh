@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "waiting for fhem (15s)"
+echo "starting but let's waiting for fhem (15s)"
 sleep 15s
-echo "dbus restarting..."
+echo "service dbus restarting..."
 service dbus restart
-echo "avahi-daemon starting..."
+echo "service avahi-daemon starting..."
 service avahi-daemon start
 echo "homebridge starting..."
 homebridge
